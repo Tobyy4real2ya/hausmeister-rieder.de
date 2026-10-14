@@ -3,13 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Hausmeisterservice Christian Rieder – Sonthofen &amp; Oberallgäu</title>
-  <meta name="description" content="Hausmeisterdienste, Winterdienst, Grünpflege, Objektbetreuung sowie Be- und Entsorgung in Sonthofen, Immenstadt, Oberstdorf und im ganzen Oberallgäu. Fester Ansprechpartner vor Ort.">
+  <title>Hausmeisterservice Christian Rieder – Sonthofen</title>
+  <!-- VORSCHAU-MODUS: Seite ist hinter der Sperrseite und nicht in Google. Zum Freischalten: noindex-Zeile und Sperrseite entfernen (siehe README). -->
+  <meta name="robots" content="noindex, nofollow">
+  <script>
+    // Sperrseite: einmal entsperrt, merkt sich der Browser das
+    (function () {
+      try { if (localStorage.getItem("preview-ok") === "1") return; } catch (e) {}
+      document.documentElement.classList.add("locked");
+    })();
+  </script>
+  <meta name="description" content="Hausmeisterdienste, Winterdienst, Grünpflege, Objektbetreuung sowie Be- und Entsorgung in Sonthofen. Fester Ansprechpartner vor Ort.">
   <link rel="canonical" href="https://hausmeister-rieder.de/">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="de_DE">
-  <meta property="og:title" content="Hausmeisterservice Christian Rieder – Sonthofen &amp; Oberallgäu">
-  <meta property="og:description" content="Hausmeisterdienste, Winterdienst, Grünpflege und Objektbetreuung im Oberallgäu. Fester Ansprechpartner vor Ort.">
+  <meta property="og:title" content="Hausmeisterservice Christian Rieder – Sonthofen">
+  <meta property="og:description" content="Hausmeisterdienste, Winterdienst, Grünpflege und Objektbetreuung in Sonthofen. Fester Ansprechpartner vor Ort.">
   <meta property="og:url" content="https://hausmeister-rieder.de/">
   <meta name="theme-color" content="#17314d">
   <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
@@ -32,12 +41,30 @@
       "addressRegion": "Bayern",
       "addressCountry": "DE"
     },
-    "areaServed": ["Sonthofen", "Immenstadt im Allgäu", "Oberstdorf", "Fischen im Allgäu", "Blaichach", "Burgberg im Allgäu", "Bad Hindelang", "Rettenberg"],
+    "areaServed": ["Sonthofen"],
     "knowsAbout": ["Hausmeisterdienste", "Winterdienst", "Grünpflege", "Objektbetreuung", "Entrümpelung"]
   }
   </script>
 </head>
 <body>
+
+<!-- Sperrseite (Vorschau-Modus) -->
+<div id="gate" role="dialog" aria-labelledby="gate-title">
+  <div class="gate-box">
+    <svg class="gate-roofs" viewBox="0 0 120 40" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" d="M2 36 14 26V14h6v7L32 10l18 16M40 36l20-16 20 16M70 26l18-16 12 11v-7h6v12l12 10"/></svg>
+    <p class="gate-name">Hausmeisterservice Christian Rieder</p>
+    <h1 id="gate-title">Diese Website ist im Aufbau.</h1>
+    <form id="gate-form" autocomplete="off">
+      <label for="gate-pw">Vorschau-Passwort</label>
+      <div class="gate-row">
+        <input id="gate-pw" type="password" required>
+        <button class="btn btn-call" type="submit">Öffnen</button>
+      </div>
+      <p id="gate-msg" class="gate-msg" hidden>Das Passwort stimmt nicht.</p>
+    </form>
+    <nav class="gate-legal" aria-label="Rechtliches"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></nav>
+  </div>
+</div>
 
 <!-- Wiederverwendbare Symbole -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -63,7 +90,7 @@
 <main>
   <section class="hero">
     <div>
-      <p class="eyebrow">Sonthofen &amp; Oberallgäu</p>
+      <p class="eyebrow">Hausmeisterservice in Sonthofen</p>
       <h1>Ihr Hausmeister<em>rund ums Haus.</em></h1>
       <p class="hero-lead">Hausmeisterdienste, Grünpflege, Winterdienst und Objektbetreuung aus einer Hand. Sie haben einen festen Ansprechpartner vor Ort, keine Hotline.</p>
       <div class="actions">
@@ -81,7 +108,7 @@
       <dl>
         <div><dt>Telefon</dt><dd><a href="tel:+4915231821919">01523 1821919</a></dd></div>
         <div><dt>E-Mail</dt><dd><a href="mailto:info@hausmeister-rieder.de">info@hausmeister-rieder.de</a></dd></div>
-        <div><dt>Standort</dt><dd class="small">Sonthofen, unterwegs im ganzen Oberallgäu</dd></div>
+        <div><dt>Standort</dt><dd class="small">Sonthofen</dd></div>
       </dl>
       <p class="note">Wenn wir gerade im Einsatz sind, rufen wir am selben Tag zurück.</p>
     </aside>
@@ -178,18 +205,11 @@
         <h2>Einsatzgebiet</h2>
         <ul class="towns">
           <li class="home">Sonthofen</li>
-          <li>Immenstadt</li>
-          <li>Oberstdorf</li>
-          <li>Fischen</li>
-          <li>Blaichach</li>
-          <li>Burgberg</li>
-          <li>Bad Hindelang</li>
-          <li>Rettenberg</li>
         </ul>
       </div>
       <div class="area-text">
-        <p><strong>Unser Standort ist Sonthofen.</strong> Von hier aus sind wir schnell im ganzen Oberallgäu. Gerade im Winter zählt jede Minute.</p>
-        <p>Ihr Ort fehlt in der Liste? Rufen Sie trotzdem an. Bei regelmäßigen Aufträgen fahren wir auch weiter.</p>
+        <p><strong>Wir arbeiten in Sonthofen.</strong> Kurze Wege heißen schnelle Einsätze, gerade im Winter, wenn morgens geräumt sein muss.</p>
+        <p>Ihr Objekt liegt knapp außerhalb? Rufen Sie an. Ob sich die Anfahrt lohnt, klären wir dann direkt am Telefon.</p>
       </div>
     </div>
   </section>
@@ -253,6 +273,21 @@
     }
   }
   document.getElementById("year").textContent = new Date().getFullYear();
+
+  // Sperrseite: einfacher Hash, damit das Passwort nicht im Klartext im Quelltext steht.
+  // Kein echter Zugriffsschutz – hält nur zufällige Besucher fern.
+  const GATE_HASH = 1290934104; // Passwort ändern: node -e mit derselben hash-Funktion, Ergebnis hier eintragen
+  const hash = s => [...s].reduce((h, c) => Math.imul(h ^ c.charCodeAt(0), 16777619) >>> 0, 2166136261);
+  document.getElementById("gate-form").addEventListener("submit", e => {
+    e.preventDefault();
+    const pw = document.getElementById("gate-pw").value.trim();
+    if (hash(pw) === GATE_HASH) {
+      try { localStorage.setItem("preview-ok", "1"); } catch (err) {}
+      document.documentElement.classList.remove("locked");
+    } else {
+      document.getElementById("gate-msg").hidden = false;
+    }
+  });
 </script>
 </body>
 </html>

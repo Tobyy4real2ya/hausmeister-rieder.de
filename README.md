@@ -14,6 +14,23 @@ Statische Website für den Hausmeisterservice Christian Rieder, Sonthofen. Kein 
 | `img/favicon.svg` | Favicon |
 | `CNAME` | eigene Domain für GitHub Pages |
 
+## Vorschau-Modus (aktuell AN)
+
+Die Startseite zeigt zuerst eine Sperrseite „Website im Aufbau“ mit Passwortfeld und ist per `noindex` aus Google ausgeschlossen. Impressum und Datenschutz bleiben frei erreichbar. **Kein echter Zugriffsschutz** – der Inhalt steht im Quelltext und im öffentlichen Repo; es hält nur zufällige Besucher fern.
+
+**Freischalten (Go-live):** in `index.html`
+1. `<meta name="robots" content="noindex, nofollow">` entfernen
+2. das `<script>` direkt darunter (setzt die Klasse `locked`) entfernen
+3. den Block `<div id="gate">…</div>` und den Sperrseiten-Teil im Script am Ende entfernen
+4. in `datenschutz.html` den Absatz zum Vorschau-Passwort entfernen
+5. danach Search Console einrichten und `sitemap.xml` einreichen
+
+**Passwort ändern:** neuen Hash berechnen und bei `GATE_HASH` eintragen:
+
+```bash
+node -e 'const h=s=>[...s].reduce((h,c)=>Math.imul(h^c.charCodeAt(0),16777619)>>>0,2166136261);console.log(h("NEUES-PASSWORT"))'
+```
+
 ## Änderungen veröffentlichen
 
 ```bash
@@ -27,7 +44,7 @@ GitHub Pages ist nach etwa einer Minute aktualisiert.
 ## Typische Änderungen
 
 - **Telefon / E-Mail / Adresse:** kommen in `index.html` (mehrfach, inkl. JSON-LD im `<head>`), `impressum.html`, `datenschutz.html` und `404.html` vor. Immer alle Stellen ändern (Suchen & Ersetzen).
-- **Orte im Einsatzgebiet:** `index.html`, Liste `.towns` und `areaServed` im JSON-LD.
+- **Orte im Einsatzgebiet:** `index.html`, Liste `.towns` und `areaServed` im JSON-LD. Stand: nur Sonthofen (Räumtraktor fährt ca. 30 km/h, weitere Orte lohnen sich nicht) – mit Papa abklären, welche Nachbarorte/Ortsteile doch gehen.
 - **Saisonzeiten:** `index.html`, Array `rows` im Script am Seitenende.
 - **Fotos:** als WebP, max. ca. 1600 px breit und ca. 200 KB groß, in `img/` ablegen.
 
