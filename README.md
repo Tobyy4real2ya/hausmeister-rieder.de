@@ -1,0 +1,46 @@
+# hausmeister-rieder.de
+
+Statische Website für den Hausmeisterservice Christian Rieder, Sonthofen. Kein Build-Schritt, kein Framework: Was hier liegt, wird 1:1 über GitHub Pages ausgeliefert.
+
+## Aufbau
+
+| Pfad | Inhalt |
+| --- | --- |
+| `index.html` | Startseite (Leistungen, Saisonkalender, Ablauf, Einsatzgebiet, Kontakt) |
+| `impressum.html`, `datenschutz.html` | Rechtstexte |
+| `404.html` | Fehlerseite |
+| `css/style.css` | gesamtes Styling, Farben als Variablen in `:root` |
+| `fonts/` | Barlow + Barlow Condensed lokal (SIL OFL, siehe `fonts/OFL.txt`) – bewusst kein Google-Fonts-CDN |
+| `img/favicon.svg` | Favicon |
+| `CNAME` | eigene Domain für GitHub Pages |
+
+## Änderungen veröffentlichen
+
+```bash
+git add -A
+git commit -m "Kurze Beschreibung"
+git push
+```
+
+GitHub Pages ist nach etwa einer Minute aktualisiert.
+
+## Typische Änderungen
+
+- **Telefon / E-Mail / Adresse:** kommen in `index.html` (mehrfach, inkl. JSON-LD im `<head>`), `impressum.html`, `datenschutz.html` und `404.html` vor. Immer alle Stellen ändern (Suchen & Ersetzen).
+- **Orte im Einsatzgebiet:** `index.html`, Liste `.towns` und `areaServed` im JSON-LD.
+- **Saisonzeiten:** `index.html`, Array `rows` im Script am Seitenende.
+- **Fotos:** als WebP, max. ca. 1600 px breit und ca. 200 KB groß, in `img/` ablegen.
+
+## DNS (bei Strato)
+
+Die Domain liegt bei Strato (Mail-Paket). Für die Website zeigen nur A/AAAA bzw. `www` auf GitHub. **MX-, TXT- (SPF) und `_dmarc`-Einträge nicht anfassen**, sonst funktionieren die E-Mails nicht mehr.
+
+| Typ | Name | Wert |
+| --- | --- | --- |
+| A | `@` | `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153` |
+| AAAA | `@` | `2606:50c0:8000::153`, `2606:50c0:8001::153`, `2606:50c0:8002::153`, `2606:50c0:8003::153` |
+| CNAME | `www` | `<github-benutzer>.github.io` |
+
+## Datenschutz
+
+Keine Cookies, kein Tracking, keine externen Ressourcen. Wenn etwas Externes dazukommt (Karte, Analyse, Formular-Dienst, WhatsApp-Widget), muss `datenschutz.html` angepasst werden.
