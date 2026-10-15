@@ -110,20 +110,7 @@ html[data-season="summer"] .eyebrow { color: var(--grass); }
 
 /* Grünten-Silhouette: randlos, Schneekappe nur im Winter/Vorwinter */
 .gruenten { max-width: var(--wrap); margin: 0 auto; }
-.gruenten svg { display: block; width: 100%; height: auto; overflow: visible; }
-.gruenten path { fill: none; stroke-linecap: round; stroke-linejoin: round; }
-.gruenten .g-fill { fill: #e1e7ed; stroke: none; }
-.gruenten .g-snow { fill: #fff; stroke: #c9d3dc; stroke-width: 1; }
-.gruenten .g-line { stroke: var(--sketch); stroke-width: 2.4; }
-.gruenten .g-echo { stroke-width: 1.2; opacity: .35; }
-.gruenten .g-thin { stroke-width: 1.8; }
-.gruenten .g-hatch { stroke: var(--sketch); stroke-width: 1.2; opacity: .45; }
-.gruenten .g-trees { stroke: var(--sketch); stroke-width: 1.4; opacity: .35; }
-.gruenten .g-mast { stroke: var(--sketch); stroke-width: 1.3; }
-/* Sommer: grünlicher Hang, keine Schneeflächen, Bäume kräftiger */
-html[data-season="summer"] .gruenten .g-fill { fill: #dfe7d4; }
-html[data-season="summer"] .gruenten .g-snow { display: none; }
-html[data-season="summer"] .gruenten .g-trees { opacity: .6; }
+.gruenten img { display: block; width: 100%; height: auto; }
 
 /* ===== Abschnitte ===== */
 section.block { max-width: var(--wrap); margin: 0 auto; padding-block: 64px; }

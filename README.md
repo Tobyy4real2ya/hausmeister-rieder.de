@@ -12,6 +12,7 @@ Statische Website für den Hausmeisterservice Christian Rieder, Sonthofen. Kein 
 | `css/style.css` | gesamtes Styling, Farben als Variablen in `:root` |
 | `fonts/` | Barlow + Barlow Condensed lokal (SIL OFL, siehe `fonts/OFL.txt`) – bewusst kein Google-Fonts-CDN |
 | `img/logo-roofs.svg` | Dächer aus dem Firmenlogo (Vektor-Nachbau, Logo-Blau `#0c2577`, Dachgrau `#b5b7af`) |
+| `img/gruenten.webp` | Grünten-Skizze (transparenter Hintergrund) |
 | `img/favicon.svg` | Favicon |
 | `CNAME` | eigene Domain für GitHub Pages |
 
@@ -33,6 +34,8 @@ node -e 'const h=s=>[...s].reduce((h,c)=>Math.imul(h^c.charCodeAt(0),16777619)>>
 ```
 
 ## Änderungen veröffentlichen
+
+**Nach jeder Änderung an `css/style.css`** die Version im Link hochzählen (`style.css?v=…` in allen 4 HTML-Dateien). GitHub Pages lässt Browser Dateien 10 Minuten zwischenspeichern – ohne neue Version mischt der Browser neues HTML mit altem CSS.
 
 ```bash
 git add -A
