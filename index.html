@@ -17,14 +17,14 @@
       root.dataset.season = m === 10 ? "pre" : (m >= 11 || m <= 3) ? "winter" : "summer";
     })();
   </script>
-  <meta name="description" content="Christian Rieder, Hausmeisterservice in Sonthofen: Winterdienst, Grünpflege, Hausmeisterdienste, Objektbetreuung sowie Be- und Entsorgung. Ich komme selbst.">
+  <meta name="description" content="Christian Rieder, Hausmeisterservice in Sonthofen: Winterdienst, Grünpflege, Hausmeisterdienste, Objektbetreuung sowie Be- und Entsorgung. Fester Ansprechpartner vor Ort.">
   <link rel="canonical" href="https://hausmeister-rieder.de/">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="de_DE">
   <meta property="og:title" content="Hausmeisterservice Christian Rieder – Sonthofen">
-  <meta property="og:description" content="Winterdienst, Grünpflege, Hausmeisterdienste und Objektbetreuung in Sonthofen. Ich komme selbst.">
+  <meta property="og:description" content="Winterdienst, Grünpflege, Hausmeisterdienste und Objektbetreuung in Sonthofen. Fester Ansprechpartner vor Ort.">
   <meta property="og:url" content="https://hausmeister-rieder.de/">
-  <meta name="theme-color" content="#0c2577">
+  <meta name="theme-color" content="#283764">
   <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="fonts/barlow-condensed-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/barlow-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
@@ -103,13 +103,13 @@
         <span class="s-summer">Grünpflege in Sonthofen</span>
       </p>
       <h1>Ihr Hausmeister<em>in Sonthofen.</em></h1>
-      <p class="hero-lead">Ich bin Christian Rieder und kümmere mich um Häuser, Gärten und Einfahrten in Sonthofen. Wenn Sie anrufen, sprechen Sie mit mir. Und ich komme auch selbst.</p>
+      <p class="hero-lead">Ich bin Christian Rieder und kümmere mich in Sonthofen um Häuser, Gärten und Einfahrten, vom Winterdienst bis zur Heckenpflege.</p>
       <div class="actions">
         <a class="btn btn-call" href="tel:+4915231821919"><svg aria-hidden="true"><use href="#i-phone"/></svg>Jetzt anrufen</a>
         <a class="btn btn-ghost" href="#leistungen">Leistungen ansehen</a>
       </div>
       <ul class="facts">
-        <li>Ich komme selbst</li>
+        <li>Fester Ansprechpartner</li>
         <li>Winterdienst 7 Tage die Woche</li>
         <li>Angebot nach Besichtigung</li>
       </ul>
@@ -127,12 +127,40 @@
     </aside>
   </section>
 
-  <!-- Der Grünten, Hausberg von Sonthofen, mit Sendemast. Im Winter mit Schneekappe. -->
+  <!-- Der Grünten als Skizze: links der Felsgipfel mit dem Jägerdenkmal, rechts der Gipfel mit dem Sendemast.
+       Im Winter mit Schneeflächen, im Sommer mit Bäumen am Hang. Ränder laufen weich aus. -->
   <figure class="gruenten" aria-hidden="true">
-    <svg viewBox="0 0 1200 160" preserveAspectRatio="xMidYMax meet">
-      <path class="mountain" d="M0 160V150C150 146 260 136 360 120C430 108 470 92 510 78C540 68 560 56 580 48L596 42C606 40 614 41 622 44C640 50 660 60 690 66C720 72 735 70 760 78C820 96 900 116 1000 130C1080 140 1140 146 1200 148V160Z"/>
-      <path class="snow" d="M540 64C560 56 578 48 596 42C606 40 614 41 622 44C640 50 660 60 690 66L682 72L664 68L652 75L636 66L622 73L608 62L594 71L580 60L566 70L553 66Z"/>
-      <path class="mast" d="M601 43 605 4h2l4 39Z M598 18h18M600 28h14"/>
+    <svg viewBox="0 -72 1200 232">
+      <defs>
+        <linearGradient id="g-fade-x" x1="0" x2="1">
+          <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+          <stop offset=".14" stop-color="#fff"/>
+          <stop offset=".86" stop-color="#fff"/>
+          <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+        </linearGradient>
+        <linearGradient id="g-fade-y" x1="0" y1="0" x2="0" y2="1">
+          <stop offset=".55" stop-color="#fff"/>
+          <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+        </linearGradient>
+        <mask id="g-mask-x"><rect x="0" y="-72" width="1200" height="232" fill="url(#g-fade-x)"/></mask>
+        <mask id="g-mask-fill"><rect x="0" y="-72" width="1200" height="232" fill="url(#g-fade-y)"/></mask>
+      </defs>
+      <g mask="url(#g-mask-x)">
+        <g mask="url(#g-mask-fill)">
+          <path class="g-fill" d="M0 155C90 146 160 128 204 118S320 96 360 86C390 78 410 62 430 50C450 42 470 40 490 40S525 44 540 52C560 62 580 70 610 73S665 76 690 71C715 64 735 54 760 44S800 31 813 30C832 31 846 35 860 40S925 55 952 62 1020 80 1054 84C1090 72 1120 58 1142 56 1165 58 1185 62 1200 66V160H0Z"/>
+        </g>
+        <path class="g-snow" d="M405 66C415 56 425 50 430 50C450 42 470 40 490 40S525 44 540 52L530 60 516 54 502 63 486 55 470 64 454 56 438 66 422 60ZM760 44C775 38 800 31 813 30 832 31 846 35 860 40 880 45 900 50 915 53L902 60 888 55 873 63 858 56 843 65 828 57 812 66 797 57 782 64 768 56Z"/>
+        <path class="g-line" d="M0 155C90 146 160 128 204 118S320 96 360 86C390 78 410 62 430 50C450 42 470 40 490 40S525 44 540 52C560 62 580 70 610 73S665 76 690 71C715 64 735 54 760 44S800 31 813 30C832 31 846 35 860 40S925 55 952 62 1020 80 1054 84C1090 72 1120 58 1142 56 1165 58 1185 62 1200 66"/>
+        <path class="g-line g-echo" transform="translate(2 3)" d="M204 118S320 96 360 86C390 78 410 62 430 50C450 42 470 40 490 40S525 44 540 52C560 62 580 70 610 73S665 76 690 71C715 64 735 54 760 44S800 31 813 30C832 31 846 35 860 40S925 55 952 62"/>
+        <!-- Felsen unter dem Denkmalgipfel -->
+        <path class="g-hatch" d="M440 56l-10 18M456 52l-14 26M472 50l-12 22M490 50l-16 30M508 52l-12 22M524 56l-12 22M450 88l-8 14M486 88l-10 18M516 86l-8 14"/>
+        <!-- Bäume am Hang unter dem Sender -->
+        <path class="g-trees" d="M842 70l5-11 5 11M864 76l5-12 5 12M886 82l5-11 5 11M854 92l5-12 5 12M878 98l5-11 5 11M902 92l5-12 5 12M924 100l5-11 5 11M830 86l5-11 5 11M946 96l5-12 5 12"/>
+        <!-- Jägerdenkmal -->
+        <path class="g-line g-thin" d="M472 40V34h32v6M478 34Q488 4 498 34"/>
+        <!-- Sendemast (Gitterturm) -->
+        <path class="g-mast" d="M801 32 811 -50M825 32 815 -50M813 -50V-66M801.0 32L823.9 23M825.0 32L802.1 23M802.1 23L822.8 14M823.9 23L803.2 14M803.2 14L821.7 5M822.8 14L804.3 5M804.3 5L820.6 -4M821.7 5L805.4 -4M805.4 -4L819.5 -13M820.6 -4L806.5 -13M806.5 -13L818.4 -22M819.5 -13L807.6 -22M807.6 -22L817.3 -31M818.4 -22L808.7 -31M808.7 -31L816.2 -40M817.3 -31L809.8 -40M809.8 -40L815.1 -49M816.2 -40L810.9 -49"/>
+      </g>
     </svg>
   </figure>
 
@@ -194,7 +222,6 @@
       </ol>
       <div class="protocol-foot">
         <p>Preis: nach Besichtigung vor Ort</p>
-        <p class="sign"><span>C. Rieder</span>Unterschrift</p>
       </div>
     </div>
   </section>
@@ -202,7 +229,7 @@
   <section class="block tight" id="ablauf">
     <div class="section-head">
       <h2>So läuft es ab</h2>
-      <p>Kein Formular, kein Callcenter. Sie sprechen von Anfang an mit dem, der die Arbeit macht.</p>
+      <p>Vom ersten Anruf bis zum Angebot in drei Schritten.</p>
     </div>
     <ol class="steps">
       <li><h3>Anrufen</h3><p>Sie erzählen mir kurz, worum es geht und wo das Objekt liegt.</p></li>

@@ -8,18 +8,19 @@
 
 :root {
   color-scheme: light;
-  /* Farben aus dem Firmenlogo: Logo-Blau + Dachgrau */
+  /* Farben aus dem Firmenlogo: Logo-Blau (exakt, für Schrift/Linien) + gedämpfte Variante für große Flächen + Dachgrau */
   --brand: #0c2577;
-  --brand-dark: #0a1c58;
+  --brand-surface: #283764;
   --roof-grey: #b5b7af;
+  --sketch: #4d5a73;
   --ink: #16213b;
   --paper: #f4f4f1;
   --surface: #ffffff;
   --sheet: #fffdf8;
   --sheet-line: #d6d2c6;
-  --signal: #d8731c;
-  --signal-hover: #c1631a;
-  --grass: #4f7d3a;
+  --signal: #b85a12;
+  --signal-hover: #a34f0f;
+  --grass: #456e32;
   --snow: #7fabd0;
   --winter-ink: #2f638f;
   --muted: #5a6474;
@@ -27,7 +28,6 @@
   --line: #d8dcd6;
   --display: "Barlow Condensed", "Arial Narrow", "Roboto Condensed", sans-serif;
   --body: "Barlow", "Segoe UI", system-ui, sans-serif;
-  --script: "Segoe Script", "Bradley Hand", "Snell Roundhand", cursive;
   --wrap: 1120px;
 }
 
@@ -97,7 +97,7 @@ html[data-season="summer"] .eyebrow { color: var(--grass); }
 
 /* Kontaktkarte im Hero (statt Foto, bis echte Bilder da sind) */
 .hero-card {
-  background: var(--brand); color: #fff; border-radius: 10px;
+  background: var(--brand-surface); color: #fff; border-radius: 10px;
   padding: 32px; box-shadow: 14px 14px 0 var(--roof-grey);
   display: grid; gap: 22px;
 }
@@ -109,13 +109,21 @@ html[data-season="summer"] .eyebrow { color: var(--grass); }
 .hero-card .note { font-size: 15px; color: var(--muted-on-dark); border-top: 1px solid rgba(255,255,255,.18); padding-top: 18px; }
 
 /* Grünten-Silhouette: randlos, Schneekappe nur im Winter/Vorwinter */
-.gruenten { margin: 0 -16px; }
-.gruenten svg { display: block; width: 100%; height: auto; }
-.gruenten .mountain { fill: #dde4ea; }
-.gruenten .snow { fill: #fff; }
-.gruenten .mast { fill: #98a2ad; stroke: #98a2ad; stroke-width: 2; }
-html[data-season="summer"] .gruenten .mountain { fill: #d9e2cf; }
-html[data-season="summer"] .gruenten .snow { display: none; }
+.gruenten { max-width: var(--wrap); margin: 0 auto; }
+.gruenten svg { display: block; width: 100%; height: auto; overflow: visible; }
+.gruenten path { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.gruenten .g-fill { fill: #e1e7ed; stroke: none; }
+.gruenten .g-snow { fill: #fff; stroke: #c9d3dc; stroke-width: 1; }
+.gruenten .g-line { stroke: var(--sketch); stroke-width: 2.4; }
+.gruenten .g-echo { stroke-width: 1.2; opacity: .35; }
+.gruenten .g-thin { stroke-width: 1.8; }
+.gruenten .g-hatch { stroke: var(--sketch); stroke-width: 1.2; opacity: .45; }
+.gruenten .g-trees { stroke: var(--sketch); stroke-width: 1.4; opacity: .35; }
+.gruenten .g-mast { stroke: var(--sketch); stroke-width: 1.3; }
+/* Sommer: grünlicher Hang, keine Schneeflächen, Bäume kräftiger */
+html[data-season="summer"] .gruenten .g-fill { fill: #dfe7d4; }
+html[data-season="summer"] .gruenten .g-snow { display: none; }
+html[data-season="summer"] .gruenten .g-trees { opacity: .6; }
 
 /* ===== Abschnitte ===== */
 section.block { max-width: var(--wrap); margin: 0 auto; padding-block: 64px; }
@@ -161,8 +169,6 @@ section.block.tight { padding-top: 0; }
   display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap;
   padding: 20px 28px 26px; font-weight: 600;
 }
-.sign { display: grid; text-align: center; min-width: 190px; font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
-.sign span { font: 400 24px/1.3 var(--script); letter-spacing: 0; text-transform: none; color: var(--brand); border-bottom: 1px solid var(--ink); padding-bottom: 2px; margin-bottom: 4px; }
 
 /* Zielgruppen */
 .audience { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
@@ -186,12 +192,12 @@ section.block.tight { padding-top: 0; }
 .area-text strong { color: var(--ink); }
 
 /* Kontakt */
-.contact { background: var(--brand); color: #fff; border-radius: 12px; padding: 40px; display: grid; grid-template-columns: 1.1fr 1fr; gap: 40px; align-items: center; }
+.contact { background: var(--brand-surface); color: #fff; border-radius: 12px; padding: 40px; display: grid; grid-template-columns: 1.1fr 1fr; gap: 40px; align-items: center; }
 .contact h2 { font-size: clamp(34px, 4.4vw, 50px); text-transform: uppercase; }
 .contact .lead { color: var(--muted-on-dark); margin-top: 12px; max-width: 32em; }
 .contact .actions { margin-top: 24px; }
 .contact .btn-ghost { border-color: #fff; color: #fff; }
-.contact .btn-ghost:hover { background: #fff; color: var(--brand); }
+.contact .btn-ghost:hover { background: #fff; color: var(--brand-surface); }
 .contact dl { margin: 0; display: grid; gap: 16px; }
 .contact dt { font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted-on-dark); }
 .contact dd { margin: 2px 0 0; font-family: var(--display); font-size: 26px; font-weight: 600; overflow-wrap: anywhere; }
