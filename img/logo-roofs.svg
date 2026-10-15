@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -12 1640 320">
+  <!-- Dächer aus dem Firmenlogo Hausmeisterservice Christian Rieder: blaue Linie, grauer Schatten, Mitteldach vorne.
+       Strichstärken gegenüber dem Druck-Logo verstärkt, damit die blaue Linie auch bei ~150 px Breite sichtbar bleibt. -->
+  <g fill="none" stroke-linejoin="miter">
+    <path stroke="#b5b7af" stroke-width="34" transform="translate(0 20)" d="M8 267 163 174V42h137v48L444 8l259 152M931 160 1191 8l145 82V42h137v132l154 93"/>
+    <path stroke="#0c2577" stroke-width="16" d="M8 267 163 174V42h137v48L444 8l259 152M931 160 1191 8l145 82V42h137v132l154 93"/>
+    <path stroke="#b5b7af" stroke-width="34" transform="translate(0 20)" d="M520 266 818 95l299 171"/>
+    <path stroke="#0c2577" stroke-width="16" d="M520 266 818 95l299 171"/>
+  </g>
+</svg>

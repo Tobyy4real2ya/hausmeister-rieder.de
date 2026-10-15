@@ -7,22 +7,27 @@
   <!-- VORSCHAU-MODUS: Seite ist hinter der Sperrseite und nicht in Google. Zum Freischalten: noindex-Zeile und Sperrseite entfernen (siehe README). -->
   <meta name="robots" content="noindex, nofollow">
   <script>
-    // Sperrseite: einmal entsperrt, merkt sich der Browser das
     (function () {
-      try { if (localStorage.getItem("preview-ok") === "1") return; } catch (e) {}
-      document.documentElement.classList.add("locked");
+      var root = document.documentElement;
+      // Sperrseite: einmal entsperrt, merkt sich der Browser das
+      try { if (localStorage.getItem("preview-ok") !== "1") root.classList.add("locked"); }
+      catch (e) { root.classList.add("locked"); }
+      // Saison vor dem ersten Zeichnen setzen: Oktober = Vorsaison Winter, Nov–März = Winter, April–Sept. = Sommer
+      var m = new Date().getMonth() + 1;
+      root.dataset.season = m === 10 ? "pre" : (m >= 11 || m <= 3) ? "winter" : "summer";
     })();
   </script>
-  <meta name="description" content="Hausmeisterdienste, Winterdienst, Grünpflege, Objektbetreuung sowie Be- und Entsorgung in Sonthofen. Fester Ansprechpartner vor Ort.">
+  <meta name="description" content="Christian Rieder, Hausmeisterservice in Sonthofen: Winterdienst, Grünpflege, Hausmeisterdienste, Objektbetreuung sowie Be- und Entsorgung. Ich komme selbst.">
   <link rel="canonical" href="https://hausmeister-rieder.de/">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="de_DE">
   <meta property="og:title" content="Hausmeisterservice Christian Rieder – Sonthofen">
-  <meta property="og:description" content="Hausmeisterdienste, Winterdienst, Grünpflege und Objektbetreuung in Sonthofen. Fester Ansprechpartner vor Ort.">
+  <meta property="og:description" content="Winterdienst, Grünpflege, Hausmeisterdienste und Objektbetreuung in Sonthofen. Ich komme selbst.">
   <meta property="og:url" content="https://hausmeister-rieder.de/">
-  <meta name="theme-color" content="#17314d">
+  <meta name="theme-color" content="#0c2577">
   <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="fonts/barlow-condensed-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/barlow-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/barlow-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/style.css">
   <script type="application/ld+json">
@@ -30,6 +35,7 @@
     "@context": "https://schema.org",
     "@type": "HomeAndConstructionBusiness",
     "name": "Hausmeisterservice Christian Rieder",
+    "founder": { "@type": "Person", "name": "Christian Rieder" },
     "url": "https://hausmeister-rieder.de/",
     "telephone": "+49 1523 1821919",
     "email": "info@hausmeister-rieder.de",
@@ -48,10 +54,17 @@
 </head>
 <body>
 
+<!-- Wiederverwendbare Symbole -->
+<svg class="sprite" width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-phone" viewBox="0 0 24 24"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5z"/></symbol>
+  <symbol id="check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.5c1.6 1.4 3 3 4.2 5.1C11.6 11.4 15 7.6 20 4.6"/></symbol>
+</svg>
+
 <!-- Sperrseite (Vorschau-Modus) -->
 <div id="gate" role="dialog" aria-labelledby="gate-title">
   <div class="gate-box">
-    <svg class="gate-roofs" viewBox="0 0 120 40" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" d="M2 36 14 26V14h6v7L32 10l18 16M40 36l20-16 20 16M70 26l18-16 12 11v-7h6v12l12 10"/></svg>
+    <img class="gate-roofs" src="img/logo-roofs.svg" alt="" width="164" height="30">
     <p class="gate-name">Hausmeisterservice Christian Rieder</p>
     <h1 id="gate-title">Diese Website ist im Aufbau.</h1>
     <form id="gate-form" autocomplete="off">
@@ -66,22 +79,16 @@
   </div>
 </div>
 
-<!-- Wiederverwendbare Symbole -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="i-phone" viewBox="0 0 24 24"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></symbol>
-  <symbol id="i-mail" viewBox="0 0 24 24"><path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5z"/></symbol>
-  <symbol id="roofs" viewBox="0 0 120 40"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" d="M2 36 14 26V14h6v7L32 10l18 16M40 36l20-16 20 16M70 26l18-16 12 11v-7h6v12l12 10"/></symbol>
-</svg>
-
 <header class="top">
-  <a class="brand" href="/" aria-label="Hausmeisterservice Christian Rieder, zur Startseite">
-    <svg viewBox="0 0 120 40" aria-hidden="true"><use href="#roofs"/></svg>
-    <span class="brand-name">Hausmeisterservice<small>Christian Rieder · Sonthofen</small></span>
+  <a class="logo" href="/" aria-label="Hausmeisterservice Christian Rieder, zur Startseite">
+    <img class="logo-roofs" src="img/logo-roofs.svg" alt="" width="164" height="30">
+    <span class="logo-word">Hausmeisterservice</span>
+    <span class="logo-name">Christian Rieder</span>
   </a>
   <nav class="links" aria-label="Hauptnavigation">
     <a href="#leistungen">Leistungen</a>
     <a href="#ablauf">Ablauf</a>
-    <a href="#gebiet">Einsatzgebiet</a>
+    <a href="#sonthofen">Sonthofen</a>
     <a href="#kontakt">Kontakt</a>
   </nav>
   <a class="top-phone" href="tel:+4915231821919"><small>Direkt anrufen</small>01523 1821919</a>
@@ -90,87 +97,105 @@
 <main>
   <section class="hero">
     <div>
-      <p class="eyebrow">Hausmeisterservice in Sonthofen</p>
-      <h1>Ihr Hausmeister<em>rund ums Haus.</em></h1>
-      <p class="hero-lead">Hausmeisterdienste, Grünpflege, Winterdienst und Objektbetreuung aus einer Hand. Sie haben einen festen Ansprechpartner vor Ort, keine Hotline.</p>
+      <p class="eyebrow">
+        <span class="s-winter">Winterdienst in Sonthofen</span>
+        <span class="s-pre">Jetzt den Winterdienst vereinbaren</span>
+        <span class="s-summer">Grünpflege in Sonthofen</span>
+      </p>
+      <h1>Ihr Hausmeister<em>in Sonthofen.</em></h1>
+      <p class="hero-lead">Ich bin Christian Rieder und kümmere mich um Häuser, Gärten und Einfahrten in Sonthofen. Wenn Sie anrufen, sprechen Sie mit mir. Und ich komme auch selbst.</p>
       <div class="actions">
         <a class="btn btn-call" href="tel:+4915231821919"><svg aria-hidden="true"><use href="#i-phone"/></svg>Jetzt anrufen</a>
         <a class="btn btn-ghost" href="#leistungen">Leistungen ansehen</a>
       </div>
       <ul class="facts">
-        <li>Fester Ansprechpartner</li>
+        <li>Ich komme selbst</li>
         <li>Winterdienst 7 Tage die Woche</li>
         <li>Angebot nach Besichtigung</li>
       </ul>
     </div>
     <aside class="hero-card" aria-label="Kontakt">
-      <svg class="roofs" viewBox="0 0 120 40" aria-hidden="true"><use href="#roofs"/></svg>
       <dl>
         <div><dt>Telefon</dt><dd><a href="tel:+4915231821919">01523 1821919</a></dd></div>
         <div><dt>E-Mail</dt><dd><a href="mailto:info@hausmeister-rieder.de">info@hausmeister-rieder.de</a></dd></div>
-        <div><dt>Standort</dt><dd class="small">Sonthofen</dd></div>
       </dl>
-      <p class="note">Wenn wir gerade im Einsatz sind, rufen wir am selben Tag zurück.</p>
+      <p class="note">
+        <span class="s-winter">Im Winter bin ich früh unterwegs. Wenn ich gerade räume, rufe ich am selben Tag zurück.</span>
+        <span class="s-pre">Für den kommenden Winter nehme ich jetzt noch Objekte in Sonthofen auf.</span>
+        <span class="s-summer">Wenn ich gerade im Einsatz bin, rufe ich am selben Tag zurück.</span>
+      </p>
     </aside>
   </section>
 
-  <svg class="roofline" viewBox="0 0 1200 28" preserveAspectRatio="none" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" vector-effect="non-scaling-stroke" d="M0 26H520l40-22 40 22 40-22 40 22H1200"/></svg>
+  <!-- Der Grünten, Hausberg von Sonthofen, mit Sendemast. Im Winter mit Schneekappe. -->
+  <figure class="gruenten" aria-hidden="true">
+    <svg viewBox="0 0 1200 160" preserveAspectRatio="xMidYMax meet">
+      <path class="mountain" d="M0 160V150C150 146 260 136 360 120C430 108 470 92 510 78C540 68 560 56 580 48L596 42C606 40 614 41 622 44C640 50 660 60 690 66C720 72 735 70 760 78C820 96 900 116 1000 130C1080 140 1140 146 1200 148V160Z"/>
+      <path class="snow" d="M540 64C560 56 578 48 596 42C606 40 614 41 622 44C640 50 660 60 690 66L682 72L664 68L652 75L636 66L622 73L608 62L594 71L580 60L566 70L553 66Z"/>
+      <path class="mast" d="M601 43 605 4h2l4 39Z M598 18h18M600 28h14"/>
+    </svg>
+  </figure>
 
   <section class="block" id="leistungen">
     <div class="section-head">
-      <h2>Unsere Leistungen</h2>
-      <p>Jedes Grundstück ist anders. Deshalb schauen wir uns Ihr Objekt vor Ort an und machen Ihnen danach ein Angebot, das zu Fläche und Aufwand passt.</p>
+      <h2>Meine Leistungen</h2>
+      <p>Jedes Grundstück ist anders. Deshalb schaue ich mir Ihr Objekt vor Ort an und mache Ihnen danach ein Angebot, das zu Fläche und Aufwand passt.</p>
     </div>
 
-    <div class="services">
-      <article class="svc">
-        <div><h3>Hausmeisterdienste</h3><p class="season">ganzjährig</p></div>
-        <ul>
-          <li>Kleinreparaturen, Montagen, Kontrollgänge</li>
-          <li>Mülltonnen raus- und reinstellen, reinigen</li>
-          <li>Einsätze auch kurzfristig und am Wochenende</li>
-        </ul>
-      </article>
-      <article class="svc">
-        <div><h3>Winterdienst</h3><p class="season">November bis April</p></div>
-        <ul>
-          <li>Räumen und Streuen von Gehwegen, Zufahrten und Parkplätzen</li>
-          <li>Bereitschaft 7 Tage die Woche, Streumittel inklusive</li>
-          <li>Am besten vor Saisonbeginn vereinbaren</li>
-        </ul>
-      </article>
-      <article class="svc">
-        <div><h3>Grünpflege</h3><p class="season">April bis Oktober</p></div>
-        <ul>
-          <li>Rasenmähen mit Kantenschnitt</li>
-          <li>Hecken-, Baum- und Formschnitt</li>
-          <li>Beetpflege, Laub und Grünschnitt-Entsorgung</li>
-        </ul>
-      </article>
-      <article class="svc">
-        <div><h3>Objektbetreuung</h3><p class="season">ganzjährig</p></div>
-        <ul>
-          <li>Hausbegehungen mit Protokoll</li>
-          <li>Treppenhausreinigung</li>
-          <li>Schlüsselübergabe für Ferienwohnungen</li>
-        </ul>
-      </article>
-      <article class="svc">
-        <div><h3>Be- &amp; Entsorgung</h3><p class="season">ganzjährig</p></div>
-        <ul>
-          <li>Entrümpelung von Keller, Dachboden und Garage</li>
-          <li>Abtransport zum Wertstoffhof</li>
-          <li>Materialtransporte</li>
-        </ul>
-      </article>
-    </div>
-  </section>
-
-  <section class="block tight">
-    <div class="season-cal">
-      <h2>Wann wir was machen</h2>
-      <p>Im Allgäu bestimmt das Wetter den Kalender. So planen wir das Jahr.</p>
-      <div class="cal" id="cal" role="table" aria-label="Saisonkalender der Leistungen"></div>
+    <div class="protocol">
+      <div class="protocol-head">
+        <p class="protocol-title">Leistungsprotokoll</p>
+        <dl class="protocol-fields">
+          <div><dt>Ort</dt><dd>Sonthofen</dd></div>
+          <div><dt>Ausführung</dt><dd>Christian Rieder</dd></div>
+        </dl>
+      </div>
+      <ol class="protocol-rows">
+        <li class="prow" data-months="11,12,1,2,3,4">
+          <svg class="tick" aria-hidden="true"><use href="#check"/></svg>
+          <div class="prow-main">
+            <h3>Winterdienst</h3>
+            <p>Räumen und Streuen von Gehwegen, Zufahrten und Parkplätzen. Bereitschaft 7 Tage die Woche, Streumittel inklusive. Am besten vor Saisonbeginn vereinbaren.</p>
+          </div>
+          <p class="prow-season"><span class="now">jetzt</span>Nov – Apr</p>
+        </li>
+        <li class="prow" data-months="4,5,6,7,8,9,10">
+          <svg class="tick" aria-hidden="true"><use href="#check"/></svg>
+          <div class="prow-main">
+            <h3>Grünpflege</h3>
+            <p>Rasenmähen mit Kantenschnitt, Hecken-, Baum- und Formschnitt, Beetpflege, Laub und Grünschnitt-Entsorgung.</p>
+          </div>
+          <p class="prow-season"><span class="now">jetzt</span>Apr – Okt</p>
+        </li>
+        <li class="prow" data-months="all">
+          <svg class="tick" aria-hidden="true"><use href="#check"/></svg>
+          <div class="prow-main">
+            <h3>Hausmeisterdienste</h3>
+            <p>Kleinreparaturen, Montagen, Kontrollgänge, Mülltonnen raus- und reinstellen. Auch kurzfristig und am Wochenende.</p>
+          </div>
+          <p class="prow-season">ganzjährig</p>
+        </li>
+        <li class="prow" data-months="all">
+          <svg class="tick" aria-hidden="true"><use href="#check"/></svg>
+          <div class="prow-main">
+            <h3>Objektbetreuung</h3>
+            <p>Hausbegehungen mit Protokoll, Treppenhausreinigung, Schlüsselübergabe für Ferienwohnungen.</p>
+          </div>
+          <p class="prow-season">ganzjährig</p>
+        </li>
+        <li class="prow" data-months="all">
+          <svg class="tick" aria-hidden="true"><use href="#check"/></svg>
+          <div class="prow-main">
+            <h3>Be- &amp; Entsorgung</h3>
+            <p>Entrümpelung von Keller, Dachboden und Garage, Abtransport zum Wertstoffhof, Materialtransporte.</p>
+          </div>
+          <p class="prow-season">ganzjährig</p>
+        </li>
+      </ol>
+      <div class="protocol-foot">
+        <p>Preis: nach Besichtigung vor Ort</p>
+        <p class="sign"><span>C. Rieder</span>Unterschrift</p>
+      </div>
     </div>
   </section>
 
@@ -180,35 +205,35 @@
       <p>Kein Formular, kein Callcenter. Sie sprechen von Anfang an mit dem, der die Arbeit macht.</p>
     </div>
     <ol class="steps">
-      <li><h3>Anrufen</h3><p>Sie erzählen kurz, worum es geht und wo das Objekt liegt.</p></li>
-      <li><h3>Besichtigung</h3><p>Wir schauen uns Grundstück oder Gebäude vor Ort an und klären alle Details.</p></li>
-      <li><h3>Angebot</h3><p>Sie bekommen ein Angebot, das zu Ihrem Objekt passt. Einmalig oder regelmäßig.</p></li>
+      <li><h3>Anrufen</h3><p>Sie erzählen mir kurz, worum es geht und wo das Objekt liegt.</p></li>
+      <li><h3>Besichtigung</h3><p>Ich schaue mir Grundstück oder Gebäude vor Ort an, und wir klären alle Details.</p></li>
+      <li><h3>Angebot</h3><p>Sie bekommen von mir ein Angebot, das zu Ihrem Objekt passt. Einmalig oder regelmäßig.</p></li>
     </ol>
   </section>
 
   <section class="block tight">
     <div class="section-head">
-      <h2>Für wen wir arbeiten</h2>
-      <p>Vom Einfamilienhaus bis zur Wohnanlage: Wir passen den Umfang an das Objekt an, nicht umgekehrt.</p>
+      <h2>Für wen ich arbeite</h2>
+      <p>Vom Einfamilienhaus bis zur Wohnanlage: Ich passe den Umfang an das Objekt an, nicht umgekehrt.</p>
     </div>
     <div class="audience">
       <div class="aud"><h3>Ferienwohnungen</h3><p>Schlüsselübergabe, Kontrollgänge zwischen den Gästen und Winterdienst, auch wenn Sie selbst nicht vor Ort sind.</p></div>
-      <div class="aud"><h3>Hausverwaltungen</h3><p>Fester Ansprechpartner, Rahmenverträge und Protokolle für Ihre Objekte in der Region.</p></div>
-      <div class="aud"><h3>Privathaushalte</h3><p>Rasen, Hecke, Schnee oder die Lampe im Flur. Auch kleine Aufträge übernehmen wir.</p></div>
-      <div class="aud"><h3>Gewerbe</h3><p>Außenanlagen, Parkplätze und Zufahrten gepflegt und im Winter pünktlich geräumt.</p></div>
+      <div class="aud"><h3>Hausverwaltungen</h3><p>Ein fester Ansprechpartner, Rahmenverträge und Protokolle für Ihre Objekte in Sonthofen.</p></div>
+      <div class="aud"><h3>Privathaushalte</h3><p>Rasen, Hecke, Schnee oder die Lampe im Flur. Auch kleine Aufträge übernehme ich.</p></div>
+      <div class="aud"><h3>Gewerbe</h3><p>Außenanlagen, Parkplätze und Zufahrten gepflegt und im Winter rechtzeitig geräumt.</p></div>
     </div>
   </section>
 
-  <section class="block tight" id="gebiet">
+  <section class="block tight" id="sonthofen">
     <div class="area">
       <div>
-        <h2>Einsatzgebiet</h2>
+        <h2>Unterwegs in Sonthofen</h2>
         <ul class="towns">
           <li class="home">Sonthofen</li>
         </ul>
       </div>
       <div class="area-text">
-        <p><strong>Wir arbeiten in Sonthofen.</strong> Kurze Wege heißen schnelle Einsätze, gerade im Winter, wenn morgens geräumt sein muss.</p>
+        <p><strong>Ich arbeite in Sonthofen, der südlichsten Stadt Deutschlands.</strong> Kurze Wege heißen schnelle Einsätze, gerade im Winter, wenn morgens geräumt sein muss.</p>
         <p>Ihr Objekt liegt knapp außerhalb? Rufen Sie an. Ob sich die Anfahrt lohnt, klären wir dann direkt am Telefon.</p>
       </div>
     </div>
@@ -218,7 +243,7 @@
     <div class="contact">
       <div>
         <h2>Kurz anrufen, dann klären wir das.</h2>
-        <p class="lead">Am schnellsten erreichen Sie uns telefonisch. Gern auch per E-Mail mit ein paar Sätzen zu Ihrem Objekt.</p>
+        <p class="lead">Am schnellsten erreichen Sie mich telefonisch. Gern auch per E-Mail mit ein paar Sätzen zu Ihrem Objekt.</p>
         <div class="actions">
           <a class="btn btn-call" href="tel:+4915231821919"><svg aria-hidden="true"><use href="#i-phone"/></svg>Anrufen</a>
           <a class="btn btn-ghost" href="mailto:info@hausmeister-rieder.de?subject=Anfrage%20%C3%BCber%20die%20Website"><svg aria-hidden="true"><use href="#i-mail"/></svg>E-Mail schreiben</a>
@@ -227,7 +252,7 @@
       <dl>
         <div><dt>Telefon</dt><dd><a href="tel:+4915231821919">01523 1821919</a></dd></div>
         <div><dt>E-Mail</dt><dd><a href="mailto:info@hausmeister-rieder.de">info@hausmeister-rieder.de</a></dd></div>
-        <div><dt>Anschrift</dt><dd class="small">Vordere Burgauffahrt 11<br>87527 Sonthofen</dd></div>
+        <div><dt>Anschrift</dt><dd class="small">Christian Rieder<br>Vordere Burgauffahrt 11<br>87527 Sonthofen</dd></div>
       </dl>
     </div>
   </section>
@@ -244,39 +269,17 @@
 </div>
 
 <script>
-  // Saisonkalender aus Daten erzeugen, damit Zeiträume an einer Stelle gepflegt werden
-  const months = ["J", "F", "M", "A", "M", "J", "J", "A", "S", "O", "N", "D"];
-  const allYear = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-  const rows = [
-    { label: "Winterdienst", cls: "w", on: [1, 2, 3, 4, 11, 12] },
-    { label: "Grünpflege", cls: "g", on: [4, 5, 6, 7, 8, 9, 10] },
-    { label: "Hausmeisterdienste", cls: "h", on: allYear },
-    { label: "Objektbetreuung", cls: "h", on: allYear },
-    { label: "Be- & Entsorgung", cls: "e", on: allYear },
-  ];
-  const cal = document.getElementById("cal");
-  const cell = (cls, text = "", role = "cell") => {
-    const d = document.createElement("div");
-    d.className = cls;
-    d.textContent = text;
-    d.setAttribute("role", role);
-    return d;
-  };
-  cal.append(cell("", "", "columnheader"), ...months.map(m => cell("m", m, "columnheader")));
-  for (const r of rows) {
-    cal.append(cell("lbl", r.label, "rowheader"));
-    for (let i = 1; i <= 12; i++) {
-      const active = r.on.includes(i);
-      const c = cell(active ? `on ${r.cls}` : "off");
-      c.setAttribute("aria-label", active ? "Saison" : "keine Saison");
-      cal.append(c);
-    }
+  // Leistungen, die gerade Saison haben, im Protokoll mit „jetzt“ markieren
+  const month = new Date().getMonth() + 1;
+  for (const row of document.querySelectorAll(".prow")) {
+    const months = row.dataset.months;
+    if (months !== "all" && months.split(",").map(Number).includes(month)) row.classList.add("in-season");
   }
   document.getElementById("year").textContent = new Date().getFullYear();
 
   // Sperrseite: einfacher Hash, damit das Passwort nicht im Klartext im Quelltext steht.
   // Kein echter Zugriffsschutz – hält nur zufällige Besucher fern.
-  const GATE_HASH = 1290934104; // Passwort ändern: node -e mit derselben hash-Funktion, Ergebnis hier eintragen
+  const GATE_HASH = 1290934104; // Passwort ändern: siehe README
   const hash = s => [...s].reduce((h, c) => Math.imul(h ^ c.charCodeAt(0), 16777619) >>> 0, 2166136261);
   document.getElementById("gate-form").addEventListener("submit", e => {
     e.preventDefault();

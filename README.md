@@ -6,11 +6,12 @@ Statische Website für den Hausmeisterservice Christian Rieder, Sonthofen. Kein 
 
 | Pfad | Inhalt |
 | --- | --- |
-| `index.html` | Startseite (Leistungen, Saisonkalender, Ablauf, Einsatzgebiet, Kontakt) |
+| `index.html` | Startseite (saisonaler Kopfbereich, Grünten, Leistungsprotokoll, Ablauf, Sonthofen, Kontakt) |
 | `impressum.html`, `datenschutz.html` | Rechtstexte |
 | `404.html` | Fehlerseite |
 | `css/style.css` | gesamtes Styling, Farben als Variablen in `:root` |
 | `fonts/` | Barlow + Barlow Condensed lokal (SIL OFL, siehe `fonts/OFL.txt`) – bewusst kein Google-Fonts-CDN |
+| `img/logo-roofs.svg` | Dächer aus dem Firmenlogo (Vektor-Nachbau, Logo-Blau `#0c2577`, Dachgrau `#b5b7af`) |
 | `img/favicon.svg` | Favicon |
 | `CNAME` | eigene Domain für GitHub Pages |
 
@@ -45,7 +46,9 @@ GitHub Pages ist nach etwa einer Minute aktualisiert.
 
 - **Telefon / E-Mail / Adresse:** kommen in `index.html` (mehrfach, inkl. JSON-LD im `<head>`), `impressum.html`, `datenschutz.html` und `404.html` vor. Immer alle Stellen ändern (Suchen & Ersetzen).
 - **Orte im Einsatzgebiet:** `index.html`, Liste `.towns` und `areaServed` im JSON-LD. Stand: nur Sonthofen (Räumtraktor fährt ca. 30 km/h, weitere Orte lohnen sich nicht) – mit Papa abklären, welche Nachbarorte/Ortsteile doch gehen.
-- **Saisonzeiten:** `index.html`, Array `rows` im Script am Seitenende.
+- **Saison der Startseite:** Script im `<head>` setzt `data-season` (Okt = `pre`, Nov–März = `winter`, Apr–Sept = `summer`); Texte stehen in `.s-winter` / `.s-pre` / `.s-summer`.
+- **„jetzt“-Markierung im Leistungsprotokoll:** Attribut `data-months` an jeder `.prow`.
+- **Texte:** Ich-Form (Ein-Mann-Betrieb). Kommen Mitarbeiter dazu, auf „wir“ umstellen.
 - **Fotos:** als WebP, max. ca. 1600 px breit und ca. 200 KB groß, in `img/` ablegen.
 
 ## DNS (bei Strato)
