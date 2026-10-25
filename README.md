@@ -51,6 +51,7 @@ GitHub Pages ist nach etwa einer Minute aktualisiert.
 - **Saison der Startseite:** Script im `<head>` setzt `data-season` (Nov–März = `winter`, Apr–Okt = `summer`); Texte stehen in `.s-winter` / `.s-summer`.
 - **„jetzt“-Markierung im Leistungsprotokoll:** Attribut `data-months` an jeder `.prow`.
 - **Texte:** Ich-Form (Ein-Mann-Betrieb). Kommen Mitarbeiter dazu, auf „wir“ umstellen.
+- **E-Mail-Adresse (Spamschutz):** steht nie als Ganzes im HTML. Links haben `data-u="info" data-d="hausmeister-rieder.de"`, `js/mail.js` setzt die Adresse im Browser zusammen. Neue Mail-Links genauso anlegen, nie `mailto:` direkt.
 - **Fotos:** als WebP, max. ca. 1600 px breit und ca. 200 KB groß, in `img/` ablegen.
 
 ## DNS (bei Strato)
