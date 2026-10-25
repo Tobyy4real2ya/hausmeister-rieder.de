@@ -15,9 +15,22 @@ Statische Website für den Hausmeisterservice Christian Rieder, Sonthofen. Kein 
 | `img/favicon.svg` | Favicon |
 | `CNAME` | eigene Domain für GitHub Pages |
 
-## Status
+## Vorschau-Modus (aktuell AN)
 
-Live seit 25.10.2026 (Sperrseite und `noindex` entfernt). Google Search Console: Domain-Property per TXT-Eintrag bei Strato, `sitemap.xml` eingereicht.
+Die Startseite zeigt zuerst eine Sperrseite „Website im Aufbau“ mit Passwortfeld und ist per `noindex` aus Google ausgeschlossen. Impressum und Datenschutz bleiben frei erreichbar. **Kein echter Zugriffsschutz** – der Inhalt steht im Quelltext und im öffentlichen Repo; es hält nur zufällige Besucher fern.
+
+**Freischalten (Go-live):** in `index.html`
+1. `<meta name="robots" content="noindex, nofollow">` entfernen
+2. das `<script>` direkt darunter (setzt die Klasse `locked`) entfernen
+3. den Block `<div id="gate">…</div>` und den Sperrseiten-Teil im Script am Ende entfernen
+4. in `datenschutz.html` den Absatz zum Vorschau-Passwort entfernen
+5. danach Search Console einrichten und `sitemap.xml` einreichen
+
+**Passwort ändern:** neuen Hash berechnen und bei `GATE_HASH` eintragen:
+
+```bash
+node -e 'const h=s=>[...s].reduce((h,c)=>Math.imul(h^c.charCodeAt(0),16777619)>>>0,2166136261);console.log(h("NEUES-PASSWORT"))'
+```
 
 ## Änderungen veröffentlichen
 
