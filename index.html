@@ -4,14 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Hausmeisterservice Christian Rieder – Sonthofen</title>
-  <!-- VORSCHAU-MODUS: Seite ist hinter der Sperrseite und nicht in Google. Zum Freischalten: noindex-Zeile und Sperrseite entfernen (siehe README). -->
-  <meta name="robots" content="noindex, nofollow">
   <script>
     (function () {
       var root = document.documentElement;
-      // Sperrseite: einmal entsperrt, merkt sich der Browser das
-      try { if (localStorage.getItem("preview-ok") !== "1") root.classList.add("locked"); }
-      catch (e) { root.classList.add("locked"); }
       // Saison vor dem ersten Zeichnen setzen: Nov–März = Winter, April–Okt. = Sommer
       var m = new Date().getMonth() + 1;
       root.dataset.season = (m >= 11 || m <= 3) ? "winter" : "summer";
@@ -29,7 +24,7 @@
   <link rel="preload" href="fonts/barlow-condensed-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/barlow-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/barlow-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/style.css?v=20261025a">
+  <link rel="stylesheet" href="css/style.css?v=20261025b">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -60,24 +55,6 @@
   <symbol id="i-mail" viewBox="0 0 24 24"><path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5z"/></symbol>
   <symbol id="check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.5c1.6 1.4 3 3 4.2 5.1C11.6 11.4 15 7.6 20 4.6"/></symbol>
 </svg>
-
-<!-- Sperrseite (Vorschau-Modus) -->
-<div id="gate" role="dialog" aria-labelledby="gate-title">
-  <div class="gate-box">
-    <img class="gate-roofs" src="img/logo-roofs.svg" alt="" width="164" height="30">
-    <p class="gate-name">Hausmeisterservice Christian Rieder</p>
-    <h1 id="gate-title">Diese Website ist im Aufbau.</h1>
-    <form id="gate-form" autocomplete="off">
-      <label for="gate-pw">Vorschau-Passwort</label>
-      <div class="gate-row">
-        <input id="gate-pw" type="password" required>
-        <button class="btn btn-call" type="submit">Öffnen</button>
-      </div>
-      <p id="gate-msg" class="gate-msg" hidden>Das Passwort stimmt nicht.</p>
-    </form>
-    <nav class="gate-legal" aria-label="Rechtliches"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></nav>
-  </div>
-</div>
 
 <header class="top">
   <a class="logo" href="/" aria-label="Hausmeisterservice Christian Rieder, zur Startseite">
@@ -267,20 +244,6 @@
   }
   document.getElementById("year").textContent = new Date().getFullYear();
 
-  // Sperrseite: einfacher Hash, damit das Passwort nicht im Klartext im Quelltext steht.
-  // Kein echter Zugriffsschutz – hält nur zufällige Besucher fern.
-  const GATE_HASH = 1290934104; // Passwort ändern: siehe README
-  const hash = s => [...s].reduce((h, c) => Math.imul(h ^ c.charCodeAt(0), 16777619) >>> 0, 2166136261);
-  document.getElementById("gate-form").addEventListener("submit", e => {
-    e.preventDefault();
-    const pw = document.getElementById("gate-pw").value.trim();
-    if (hash(pw) === GATE_HASH) {
-      try { localStorage.setItem("preview-ok", "1"); } catch (err) {}
-      document.documentElement.classList.remove("locked");
-    } else {
-      document.getElementById("gate-msg").hidden = false;
-    }
-  });
 </script>
 </body>
 </html>

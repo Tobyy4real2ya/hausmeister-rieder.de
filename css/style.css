@@ -194,21 +194,6 @@ section.block.tight { padding-top: 0; }
 .legal .back { display: inline-block; margin-bottom: 24px; font-weight: 600; text-decoration: none; color: var(--muted); }
 .legal .back:hover { color: var(--brand); }
 
-/* Sperrseite (Vorschau-Modus) */
-#gate { display: none; }
-html.locked body > *:not(#gate):not(.sprite) { display: none !important; }
-html.locked #gate { display: grid; place-items: center; min-height: 100vh; min-height: 100dvh; padding-block: 32px; }
-.gate-box { width: 100%; max-width: 420px; display: grid; gap: 16px; }
-.gate-roofs { width: 140px; height: auto; }
-.gate-name { font-weight: 600; color: var(--muted); }
-.gate-box h1 { font-size: clamp(34px, 8vw, 46px); text-transform: uppercase; }
-#gate-form { display: grid; gap: 8px; margin-top: 8px; }
-#gate-form label { font-size: 14px; font-weight: 600; }
-.gate-row { display: flex; gap: 8px; }
-.gate-row input { flex: 1; min-width: 0; font: 400 17px/1.4 var(--body); color: var(--ink); border: 1px solid #b9c1c9; border-radius: 6px; padding: 12px; background: #fff; }
-.gate-msg { color: #a33a1c; font-size: 14px; font-weight: 600; }
-.gate-legal { display: flex; gap: 20px; font-size: 14px; color: var(--muted); margin-top: 16px; }
-
 /* Fußzeile */
 footer.site { max-width: var(--wrap); margin: 64px auto 0; padding-block: 36px 110px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; font-size: 14px; color: var(--muted); border-top: 1px solid var(--line); }
 footer.site nav { display: flex; gap: 20px; }
