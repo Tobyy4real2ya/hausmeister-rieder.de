@@ -12,9 +12,9 @@
       // Sperrseite: einmal entsperrt, merkt sich der Browser das
       try { if (localStorage.getItem("preview-ok") !== "1") root.classList.add("locked"); }
       catch (e) { root.classList.add("locked"); }
-      // Saison vor dem ersten Zeichnen setzen: Oktober = Vorsaison Winter, Nov–März = Winter, April–Sept. = Sommer
+      // Saison vor dem ersten Zeichnen setzen: Nov–März = Winter, April–Okt. = Sommer
       var m = new Date().getMonth() + 1;
-      root.dataset.season = m === 10 ? "pre" : (m >= 11 || m <= 3) ? "winter" : "summer";
+      root.dataset.season = (m >= 11 || m <= 3) ? "winter" : "summer";
     })();
   </script>
   <meta name="description" content="Christian Rieder, Hausmeisterservice in Sonthofen: Winterdienst, Grünpflege, Hausmeisterdienste, Objektbetreuung sowie Be- und Entsorgung. Fester Ansprechpartner vor Ort.">
@@ -29,7 +29,7 @@
   <link rel="preload" href="fonts/barlow-condensed-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/barlow-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/barlow-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/style.css?v=20261015c">
+  <link rel="stylesheet" href="css/style.css?v=20261025a">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -99,7 +99,6 @@
     <div>
       <p class="eyebrow">
         <span class="s-winter">Winterdienst in Sonthofen</span>
-        <span class="s-pre">Jetzt den Winterdienst vereinbaren</span>
         <span class="s-summer">Grünpflege in Sonthofen</span>
       </p>
       <h1>Ihr Hausmeister<em>in Sonthofen.</em></h1>
@@ -122,16 +121,11 @@
       </dl>
       <p class="note">
         <span class="s-winter">Im Winter bin ich früh unterwegs. Wenn ich gerade räume, rufe ich zurück.</span>
-        <span class="s-pre">Für den kommenden Winter nehme ich jetzt noch Objekte in Sonthofen auf.</span>
         <span class="s-summer">Wenn ich gerade im Einsatz bin, rufe ich zurück.</span>
       </p>
     </aside>
   </section>
 
-  <!-- Der Grünten (Hausberg von Sonthofen) als Skizze: Jägerdenkmal links, Sendemast rechts -->
-  <figure class="gruenten">
-    <img src="img/gruenten.webp" alt="" width="1600" height="258" decoding="async">
-  </figure>
 
   <section class="block" id="leistungen">
     <div class="section-head">
@@ -175,7 +169,7 @@
           <svg class="tick" aria-hidden="true"><use href="#check"/></svg>
           <div class="prow-main">
             <h3>Objektbetreuung</h3>
-            <p>Hausbegehungen mit Protokoll, Treppenhausreinigung, Schlüsselübergabe für Ferienwohnungen.</p>
+            <p>Hausbegehungen mit Protokoll und Treppenhausreinigung.</p>
           </div>
           <p class="prow-season">ganzjährig</p>
         </li>
@@ -202,7 +196,7 @@
     <ol class="steps">
       <li><h3>Anrufen</h3><p>Sie erzählen mir kurz, worum es geht und wo das Objekt liegt.</p></li>
       <li><h3>Besichtigung</h3><p>Ich schaue mir Grundstück oder Gebäude vor Ort an, und wir klären alle Details.</p></li>
-      <li><h3>Angebot</h3><p>Sie bekommen von mir ein Angebot, das zu Ihrem Objekt passt. Einmalig oder regelmäßig.</p></li>
+      <li><h3>Angebot</h3><p>Sie bekommen von mir ein Angebot, das zu Ihrem Objekt passt.</p></li>
     </ol>
   </section>
 
@@ -212,7 +206,6 @@
       <p>Vom Einfamilienhaus bis zur Wohnanlage: Ich passe den Umfang an das Objekt an, nicht umgekehrt.</p>
     </div>
     <div class="audience">
-      <div class="aud"><h3>Ferienwohnungen</h3><p>Schlüsselübergabe, Kontrollgänge zwischen den Gästen und Winterdienst, auch wenn Sie selbst nicht vor Ort sind.</p></div>
       <div class="aud"><h3>Hausverwaltungen</h3><p>Ein fester Ansprechpartner, regelmäßige Betreuung per Vertrag und Protokolle für Ihre Objekte in Sonthofen.</p></div>
       <div class="aud"><h3>Privathaushalte</h3><p>Rasen, Hecke, Schnee oder die Lampe im Flur. Auch kleine Aufträge übernehme ich.</p></div>
       <div class="aud"><h3>Gewerbe</h3><p>Außenanlagen, Parkplätze und Zufahrten gepflegt und im Winter rechtzeitig geräumt.</p></div>

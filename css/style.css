@@ -44,10 +44,9 @@ img { max-width: 100%; }
 :focus-visible { outline: 3px solid var(--signal); outline-offset: 3px; border-radius: 4px; }
 
 /* Saisonabhängige Inhalte: Saison wird im <head> gesetzt, ohne JS gilt Winter */
-.s-winter, .s-pre, .s-summer { display: none; }
+.s-winter, .s-summer { display: none; }
 html:not([data-season]) .s-winter,
 html[data-season="winter"] .s-winter,
-html[data-season="pre"] .s-pre,
 html[data-season="summer"] .s-summer { display: inline; }
 
 /* ===== Kopfzeile mit Firmenlogo ===== */
@@ -105,8 +104,6 @@ nav.links a:hover { color: var(--brand); }
 .hero-card .note { font-size: 15px; color: var(--muted-on-dark); border-top: 1px solid rgba(255,255,255,.18); padding-top: 18px; }
 
 /* Grünten-Silhouette: randlos, Schneekappe nur im Winter/Vorwinter */
-.gruenten { max-width: var(--wrap); margin: 0 auto; }
-.gruenten img { display: block; width: 100%; height: auto; }
 
 /* ===== Abschnitte ===== */
 section.block { max-width: var(--wrap); margin: 0 auto; padding-block: 64px; }
@@ -154,7 +151,7 @@ section.block.tight { padding-top: 0; }
 }
 
 /* Zielgruppen */
-.audience { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.audience { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .aud { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 22px; display: flex; flex-direction: column; gap: 10px; }
 .aud h3 { font-size: 24px; }
 .aud p { color: var(--muted); font-size: 15px; }
@@ -229,7 +226,7 @@ footer.site nav { display: flex; gap: 20px; }
   .hero, .section-head, .area, .contact { grid-template-columns: 1fr; }
   .hero { padding-block: 32px 32px; gap: 36px; }
   .hero-card { box-shadow: 8px 8px 0 var(--roof-grey); }
-  .audience { grid-template-columns: repeat(2, 1fr); }
+  .audience { grid-template-columns: 1fr; }
   .steps { grid-template-columns: 1fr; }
   .contact { padding: 28px 20px; }
 }
