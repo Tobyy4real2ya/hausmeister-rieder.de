@@ -17,7 +17,7 @@ Statische Website für den Hausmeisterservice Christian Rieder, Sonthofen. Kein 
 
 ## Status
 
-Live seit 30.10.2026 nach Abnahme durch den Inhaber (Sperrseite und `noindex` entfernt). Offen: Google Search Console (Domain-Property per TXT-Eintrag bei Strato, `sitemap.xml` einreichen).
+Live seit 30.10.2026 nach Abnahme durch den Inhaber (Sperrseite und `noindex` entfernt). Google Search Console: Domain-Property (Konto bmcrieder), bestätigt per TXT-Eintrag `google-site-verification=…` bei Strato (**nicht löschen**), Sitemap eingereicht.
 
 ## Änderungen veröffentlichen
 
